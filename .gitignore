@@ -1,0 +1,65 @@
+# Dependencies
+/node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Miscellaneous
+.DS_Store
+*.pem
+
+# local env files
+.env*.local
+.env
+
+# Debug
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Database
+*.db
+
+# Vercel
+.vercel
+
+# Git vecchio
+.git_old
+
+# Altri file di backup
+*.backup
+*.old
+*.tmp
+
+# Grandi file che abbiamo rimosso
+cosmos-nft-gallery.zip
+cosmos-nft-gallery.bundle
+
+# Typescript
+*.tsbuildinfo
+next-env.d.ts
+
+# IDE
+.vscode/
+.idea/
+
+# Firebase
+.firebase/
+firebase-debug.log
+firebase-debug.*.log
+
+# Thumbnails
+config/serviceAccountKey.json
+public/
+
+# Scripts
+/scripts/

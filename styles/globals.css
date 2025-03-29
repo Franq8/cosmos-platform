@@ -1,0 +1,35 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply bg-[#F8F7F5] text-[#333333];
+}
+
+@layer components {
+  .cosmic-card {
+    @apply bg-white rounded-lg border border-[#EFEFEF] 
+    hover:shadow-md transition-all duration-300
+    shadow-sm overflow-hidden;
+  }
+
+  .cosmic-button {
+    @apply px-4 py-2 bg-[#FF6A5A] hover:bg-[#E05A4A] text-white 
+    rounded-md transition-all duration-300 shadow-sm hover:shadow-md
+    font-medium;
+  }
+
+  .cosmic-modal {
+    @apply fixed inset-0 z-50 flex items-center justify-center bg-black/70
+    backdrop-blur-sm;
+  }
+
+  .cosmic-modal-content {
+    @apply bg-white border border-[#EFEFEF] rounded-lg
+    shadow-xl w-11/12 max-w-4xl max-h-[90vh] overflow-auto;
+  }
+  
+  .cosmic-star {
+    @apply absolute w-1 h-1 rounded-full bg-white;
+  }
+} 
