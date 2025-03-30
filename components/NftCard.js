@@ -13,12 +13,7 @@ export default function NftCard({ nft, onImageLoad, onImageError }) {
   const secondaryArchetypes = getSecondaryArchetypesForNft(nft?.id);
   
   // Controlla se c'è una GIF per questo NFT (casi specifici)
-  const isGif = nft.id === 243 || nft.id === 231 || nft.id === 80 || nft.id === 70 || 
-               nft.id === 76 || nft.id === 156 ||
-               nft.id === 90 || nft.id === 101 || nft.id === 102 || nft.id === 111 || 
-               nft.id === 112 || nft.id === 123 || nft.id === 125 || nft.id === 126 || 
-               nft.id === 127 || nft.id === 129 ||
-               (nft.image && nft.image.toLowerCase().endsWith('.gif'));
+  const isGif = nft.image && nft.image.toLowerCase().endsWith('.gif');
   
   // Normalizza l'archetipo per la generazione del nome file
   const normalizeArchetype = (archetype) => {
@@ -36,29 +31,33 @@ export default function NftCard({ nft, onImageLoad, onImageError }) {
     }
     
     const normalizedArchetype = normalizeArchetype(nft.archetype);
-    const fileExt = isGif ? '.gif' : '.png';
     
     // Pattern 2: Archetipo normalizzato (spazi -> underscore)
-    patterns.push(`/thumbnails/${normalizedArchetype}_${nft.id}${fileExt}`);
+    patterns.push(`/thumbnails/${normalizedArchetype}_${nft.id}.gif`);
+    patterns.push(`/thumbnails/${normalizedArchetype}_${nft.id}.png`);
     
     // Pattern 3: Archetipo originale con spazi
     if (nft.archetype && nft.archetype !== normalizedArchetype) {
-      patterns.push(`/thumbnails/${nft.archetype}_${nft.id}${fileExt}`);
+      patterns.push(`/thumbnails/${nft.archetype}_${nft.id}.gif`);
+      patterns.push(`/thumbnails/${nft.archetype}_${nft.id}.png`);
     }
     
     // Pattern 4: Solo ID 
-    patterns.push(`/thumbnails/${nft.id}${fileExt}`);
+    patterns.push(`/thumbnails/${nft.id}.gif`);
+    patterns.push(`/thumbnails/${nft.id}.png`);
     
     // Pattern 5: Archetipo senza spazi (senza underscore)
     if (nft.archetype) {
       const noSpaceArchetype = nft.archetype.replace(/\s+/g, '');
-      patterns.push(`/thumbnails/${noSpaceArchetype}_${nft.id}${fileExt}`);
+      patterns.push(`/thumbnails/${noSpaceArchetype}_${nft.id}.gif`);
+      patterns.push(`/thumbnails/${noSpaceArchetype}_${nft.id}.png`);
     }
     
     // Pattern 6: Archetipo tutto lowercase
     if (nft.archetype) {
       const lowercaseArchetype = normalizedArchetype.toLowerCase();
-      patterns.push(`/thumbnails/${lowercaseArchetype}_${nft.id}${fileExt}`);
+      patterns.push(`/thumbnails/${lowercaseArchetype}_${nft.id}.gif`);
+      patterns.push(`/thumbnails/${lowercaseArchetype}_${nft.id}.png`);
     }
     
     // Rimuovi duplicati
