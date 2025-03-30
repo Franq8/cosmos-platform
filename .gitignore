@@ -60,7 +60,7 @@ firebase-debug.*.log
 # Thumbnails
 config/serviceAccountKey.json
 # public/  <- rimosso per includere la cartella public
-/public/thumbnails/  # <- escludiamo solo la cartella thumbnails
+# /public/thumbnails/  # <- includiamo anche la cartella thumbnails
 
 # Scripts
-/scripts/
+# /scripts/
